@@ -32,7 +32,7 @@ $ epeuva
 Would you like to generate/update the config? [y/N]:
 ```
 
-Enter `y` and the CLI will ask for the Epeuva host url (API url), username and password. When you finished, you will see this line:
+Enter `y` and the CLI will ask for the Epeuva host url (API url, ex. `https://epeuva.ai/api/v1`), username and password. When you finished, you will see this line:
 
 ```
 Config file created. Please run the CLI command again.
