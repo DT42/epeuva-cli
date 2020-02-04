@@ -13,6 +13,7 @@ setup(
     install_requires=[
         'click',
         'Pygments',
+        'requests-mock',
         'requests',
         'tqdm',
     ],
