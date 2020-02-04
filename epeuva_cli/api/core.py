@@ -12,14 +12,13 @@ logger = logging.getLogger(__name__)
 def create_login_token():
     output.debug('Creating login token')
 
-    config.token = 'token_placeholder'
-
     credentials = {
         'username': config.username,
         'password': config.password,
     }
 
-    token = post('/auth/login/', data=credentials).get('auth_token', None)
+    res = post('/auth/login/', data=credentials)
+    token = res.get('auth_token', None)
 
     config.token = token
     if not config.token:
@@ -29,6 +28,7 @@ def create_login_token():
         'Authorization': 'token {}'.format(config.token),
     }
     output.debug('Token: {}'.format(config.token))
+    return res
 
 
 def do_request(
@@ -38,8 +38,6 @@ def do_request(
         data=None,
         files=None
     ):
-    if not config.token:
-        create_login_token()
     res = callback(
         config.url + endpoint,
         headers=config.headers,
