@@ -3,6 +3,7 @@ import click
 from epeuva_cli.cli.epeuva import cli
 from epeuva_cli.api import labels
 from epeuva_cli.utils.output_handler import output
+from epeuva_cli.utils import progress_bar
 
 
 @cli.group()
@@ -44,12 +45,16 @@ def list_images(ctx):
 @click.argument('files', type=click.File(mode='rb'), nargs=-1)
 @click.pass_context
 def upload_images(ctx, files):
+
+    def upload_image(image, label_id):
+        result = labels.upload_image(ctx.obj['id'], image)
+        if 'error' in result:
+            output.print(result)
+
     if len(files) < 2:
         files = [files]
-    for file in files:
-        result = labels.upload_image(ctx.obj['id'], file)
-        output.print(result)
-        # TODO: Progress Bar
+
+    progress_bar.iterate(files, upload_image, ctx.obj['id'], 'image')
 
 
 @detail.command()

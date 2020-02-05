@@ -19,6 +19,11 @@ class OutputHandler():
         if self._pretty:
             if isinstance(obj, dict) or isinstance(obj, list):
                 content = self.prettify(obj, color=True)
+            elif isinstance(obj, str):
+                try:
+                    content = self.colorize_json(obj)
+                except Exception:
+                    pass
 
         click.echo(content)
 
