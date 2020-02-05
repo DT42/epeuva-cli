@@ -4,7 +4,7 @@ from unittest import mock
 import requests
 import requests_mock
 
-from epeuva_cli.api.core import create_login_token, get, post, put, patch, delete
+from epeuva_cli.api.core import create_login_token
 from epeuva_cli.utils.config import config
 
 
