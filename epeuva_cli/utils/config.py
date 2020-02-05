@@ -37,16 +37,16 @@ class Config():
         except configparser.Error:
             raise
 
-        if not 'host' in config:
+        if 'host' not in config:
             raise ConfigError('[host] section not defined in config.')
-        if not 'url' in config['host']:
+        if 'url' not in config['host']:
             raise ConfigError('url not defined in [host] section of the config.')
 
-        if not 'user' in config:
+        if 'user' not in config:
             raise ConfigError('[user] section not defined in config.')
-        if not 'username' in config['user']:
+        if 'username' not in config['user']:
             raise ConfigError('username not defined in [user] section of the config.')
-        if not 'password' in config['user']:
+        if 'password' not in config['user']:
             raise ConfigError('password not defined in [user] section of the config.')
 
         return config

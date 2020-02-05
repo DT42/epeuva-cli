@@ -37,7 +37,7 @@ def do_request(
         params=None,
         data=None,
         files=None
-    ):
+):
     res = callback(
         config.url + endpoint,
         headers=config.headers,

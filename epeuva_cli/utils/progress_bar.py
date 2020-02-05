@@ -1,6 +1,3 @@
-from colorama import Fore
-from time import sleep
-
 from tqdm import tqdm
 
 

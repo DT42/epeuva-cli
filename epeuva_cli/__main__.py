@@ -1,4 +1,3 @@
-import click
 import logging
 
 from epeuva_cli.cli import epeuva
@@ -9,8 +8,7 @@ import epeuva_cli.cli.job.cmd
 import epeuva_cli.cli.label.cmd
 import epeuva_cli.cli.model.cmd
 import epeuva_cli.cli.task.cmd
-import epeuva_cli.utils.config
-from epeuva_cli.utils.output_handler import output
+assert epeuva_cli.cli.task.cmd
 
 
 logger = logging.getLogger(__name__)
