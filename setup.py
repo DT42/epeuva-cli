@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='epeuva_cli',
-    version='0.1.1',
+    version='0.1.2',
     description='Epeuva CLI tool',
     url='https://github.com/DT42/epeuva-cli',
     author='DT42',

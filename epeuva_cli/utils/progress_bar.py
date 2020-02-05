@@ -1,7 +1,7 @@
 from tqdm import tqdm
 
 
-def iterate(iterable, callback, unit='it'):
+def iterate(iterable, callback, arg,  unit='it'):
     """Iterate through the iterable with a progress bar
 
     Args:
@@ -10,7 +10,7 @@ def iterate(iterable, callback, unit='it'):
     unit: the unit showing in the progress bar
     """
     for i in tqdm(iterable, unit=unit):
-        callback()
+        callback(i, arg)
 
 
 def manual(total, callback, unit='it'):

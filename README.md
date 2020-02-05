@@ -1,5 +1,7 @@
 # Epeuva cli
 
+![master](https://github.com/DT42/epeuva-cli/workflows/master/badge.svg)
+
 ## Installation (virtualenv)
 ```
 $ git clone git@github.com:DT42/epeuva-cli.git

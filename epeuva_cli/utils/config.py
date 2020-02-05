@@ -45,14 +45,20 @@ class Config():
         if 'host' not in config:
             raise ConfigError('[host] section not defined in config.')
         if 'url' not in config['host']:
-            raise ConfigError('url not defined in [host] section of the config.')
+            raise ConfigError(
+                'url not defined in [host] section of the config.'
+            )
 
         if 'user' not in config:
             raise ConfigError('[user] section not defined in config.')
         if 'username' not in config['user']:
-            raise ConfigError('username not defined in [user] section of the config.')
+            raise ConfigError(
+                'username not defined in [user] section of the config.'
+            )
         if 'password' not in config['user']:
-            raise ConfigError('password not defined in [user] section of the config.')
+            raise ConfigError(
+                'password not defined in [user] section of the config.'
+            )
 
         return config
 
@@ -76,7 +82,9 @@ class Config():
 
         url = click.prompt('Please enter the host url', type=str)
         username = click.prompt('Please enter the username', type=str)
-        password = click.prompt('Please enter the password', type=str, hide_input=True)
+        password = click.prompt(
+            'Please enter the password', type=str, hide_input=True
+        )
 
         config = configparser.ConfigParser()
         config['host'] = {

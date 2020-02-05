@@ -1,7 +1,5 @@
 import unittest
-from unittest import mock
 
-import requests
 import requests_mock
 
 from epeuva_cli.api.core import create_login_token
@@ -24,7 +22,7 @@ class TestApiCore(unittest.TestCase):
         response = create_login_token()
         self.assertIn('auth_token', response)
         self.assertIsInstance(response['auth_token'], str)
-        self.assertTrue(len(response['auth_token'])>1)
+        self.assertTrue(len(response['auth_token']) > 1)
 
     @requests_mock.Mocker()
     def test_create_login_token_not_created(self, mocker):
