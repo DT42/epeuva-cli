@@ -1,8 +1,6 @@
 import unittest
-from unittest import mock
 import uuid
 
-import requests
 import requests_mock
 
 from epeuva_cli.api import bases
@@ -39,7 +37,6 @@ class TestApiBases(unittest.TestCase):
         )
         response = bases.get_list(1)
         self.assertIsInstance(response, list)
-
 
     @requests_mock.Mocker()
     def test_bases_get_detail(self, mocker):
