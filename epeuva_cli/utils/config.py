@@ -9,17 +9,22 @@ logger = logging.getLogger(__name__)
 
 
 DEFAULT_CONFIG = os.path.expanduser('~/.epeuva-cli.conf')
+EPEUVA_USE_CI = os.environ['EPEUVA_USE_CI']
 
 
 class Config():
+
     def __init__(self):
         logger.debug('Initiating config')
-        try:
-            conf = self.load()
-        except (ConfigError, OSError) as e:
-            logger.debug('Failed to load config')
-            click.echo(e)
-            self.new()
+        if EPEUVA_USE_CI:
+            conf = self.load_dummy_config()
+        else:
+            try:
+                conf = self.load()
+            except (ConfigError, OSError) as e:
+                logger.debug('Failed to load config')
+                click.echo(e)
+                self.new()
         logger.debug('Successfully loaded config')
         self.url = conf['host']['url']
         self.username = conf['user']['username']
@@ -48,6 +53,18 @@ class Config():
             raise ConfigError('username not defined in [user] section of the config.')
         if 'password' not in config['user']:
             raise ConfigError('password not defined in [user] section of the config.')
+
+        return config
+
+    def load_dummy_config(self):
+        config = configparser.ConfigParser()
+        config['host'] = {
+            'url': 'https://epeuva-cli.ci/api/v1'
+        }
+        config['user'] = {
+            'username': 'ci',
+            'password': 'ci',
+        }
 
         return config
 

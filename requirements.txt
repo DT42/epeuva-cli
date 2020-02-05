@@ -1,6 +1,5 @@
 chardet==3.0.4
 Click==7.0
-epeuva-cli==0.1.0
 idna==2.8
 Pygments==2.5.2
 requests==2.22.0
