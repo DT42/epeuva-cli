@@ -2,6 +2,7 @@ import click
 import logging
 import pkg_resources
 
+from epeuva_cli.api.core import create_login_token
 from epeuva_cli.utils.output_handler import output
 
 
@@ -23,6 +24,7 @@ def print_version(ctx, param, value):
               expose_value=False, is_eager=True)
 def cli(debug, pretty):
     output.set(debug, pretty)
+    create_login_token()
 
 
 if __name__ == '__main__':

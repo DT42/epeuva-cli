@@ -5,5 +5,5 @@ def get_list():
     return core.get('/apps')
 
 
-def get_detail(id=1):
+def get_detail(id):
     return core.get('/apps/{}'.format(id))
