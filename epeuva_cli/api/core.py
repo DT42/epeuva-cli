@@ -81,6 +81,6 @@ def put(endpoint, params=None, data=None):
 
 
 def delete(endpoint, params=None):
-    return do_requests(
+    return do_request(
         requests.delete, endpoint, params=params
     )
