@@ -1,6 +1,7 @@
 # Epeuva cli
 
-![Python application](https://github.com/DT42/epeuva-cli/workflows/Python%20application/badge.svg)
+![master](https://github.com/DT42/epeuva-cli/workflows/main/badge.svg)
+![develop](https://github.com/DT42/epeuva-cli/workflows/main/badge.svg?branch=develop)
 
 ## Installation (virtualenv)
 ```
