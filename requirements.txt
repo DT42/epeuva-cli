@@ -1,7 +1,7 @@
 chardet==3.0.4
 Click==7.0
 idna==2.8
-Pygments==2.5.2
+Pygments==2.7.4
 requests==2.22.0
 requests-mock==1.7.0
 six==1.14.0
